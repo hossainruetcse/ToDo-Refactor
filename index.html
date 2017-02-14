@@ -11,15 +11,15 @@
         </div>
         <div class="search-div">
             <label for="Search">Search</label>
-            <input type="text" value="" id="Search" onchange="setSearchKey(this)" class="input-box"/>
+            <input type="text" value="" id="Search" onchange="search(value)" class="input-box"/>
         </div>
     </div>
 
     <div>
         <div class="menu-bar">
-            <input type="radio" name="Selected" value="All" checked onclick="show(value)"> All
-            <input type="radio" name="Selected" value="Done" onclick="show(value)"> Done
-            <input type="radio" name="Selected" value="Pending" onclick="show(value)"> Pending
+            <input type="radio" name="Selected" value="All" checked onclick="setSelectedType(value)"> All
+            <input type="radio" name="Selected" value="Done" onclick="setSelectedType(value)"> Done
+            <input type="radio" name="Selected" value="Pending" onclick="setSelectedType(value)"> Pending
             <button class="button-add" onclick="addTask()">Add</button>
         </div>
         <div id="addTask" class="input-div">

@@ -28,9 +28,9 @@
         var innerHtml = "<h2>" + taskList[index].title + "</h2> <p>" + taskList[index].discription + "</p>";
         innerHtml += '<button class="button-edit-item" onclick="editDoc(' + index + ') ">Edit</button><button class="button-delete-item"  onclick="deleteDoc(' + index + ')">Delete</button>';
         if (taskList[index].status)
-            innerHtml += '<input type="checkbox" name="Status" value=' + taskList[index].status + ' onclick="editStatus(' + index + ',this)" checked>Done<br>';
+            innerHtml += '<input type="checkbox" name="Status" value=' + taskList[index].status + ' onclick="editStatus(' + index + ')" checked>Done<br>';
         else
-            innerHtml += '<input type="checkbox" name="Status" value=' + taskList[index].status + ' onclick="editStatus(' + index + ',this)">Done<br>';
+            innerHtml += '<input type="checkbox" name="Status" value=' + taskList[index].status + ' onclick="editStatus(' + index + ')">Done<br>';
         return innerHtml;
     }
     function makeItemDiv(index) {
@@ -65,3 +65,4 @@
 };
 
 })(window);
+

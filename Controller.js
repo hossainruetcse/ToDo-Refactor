@@ -1,6 +1,7 @@
 ﻿(function(window) {
     var taskList = window.data.taskList;
     var selectedType = "All";
+    var searchKey = "";
     init();
     function init() {
         show();
@@ -18,11 +19,36 @@
         return 0;
     }
 
+    function filterForAllTask(index) {
+        return taskList[index].title.includes(searchKey);
+    }
+
+    function filterForDoneTask(index) {
+        return taskList[index].status;
+    }
+    function filterForPendingTask(index) {
+        return !taskList[index].status;
+    }
+    function filter(index) {
+        if (selectedType === "All")
+            return filterForAllTask(index);
+        else if (selectedType === "Done")
+            return (filterForDoneTask(index) && filterForAllTask(index));
+        else
+            return (filterForPendingTask(index) && filterForAllTask(index));
+    }
+
+    function setSelectedType(value) {
+        selectedType = value;
+        show();
+    }
+
     function show() {
         taskList.sort(compare);
         window.view.clearItem();
-        taskList.forEach(function (element,index) {
-            window.view.makeItemRow(index);
+        taskList.forEach(function (element, index) {
+            if (filter(index))
+                window.view.makeItemRow(index);
         });
         
     }
@@ -32,6 +58,7 @@
         document.getElementById('discription').value="";
         window.view.showAddOption();
     }
+
     function addItem() {
         
         var newTask = {};
@@ -42,6 +69,7 @@
         window.view.hideAddOption();
         show();
     }
+
     function deleteDoc(index) {
         delete taskList[index];
         show();
@@ -59,19 +87,34 @@
         taskList[index].discription = discription;
         show();
     }
+
     function editDoc(index) {
         var editElement = getEditElement(index);
         var editHtml = window.view.makeEditHtml(index);
         window.view.writeInnerHtml(editElement,editHtml);
     }
 
+    function editStatus(index) {
+        taskList[index].status = !taskList[index].status;
+        show();
+    }
+
+    function search(key) {
+        searchKey = key;
+        show();
+    }
     function cancel() {
         window.view.hideAddOption();
     }
+
     window.saveEditedDoc = saveEditedDoc;
     window.deleteDoc = deleteDoc;
     window.editDoc = editDoc;
     window.addItem = addItem;
     window.addTask = addTask;
     window.cancel = cancel;
+    window.setSelectedType = setSelectedType;
+    window.editStatus = editStatus;
+    window.search = search;
+
 })(window);
