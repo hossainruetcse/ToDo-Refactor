@@ -4,3 +4,68 @@
      border-style: solid; 
      border-width: 1px;
 }
+
+.logo {
+    width: 137px; 
+    height: 137px; 
+    display: inline-block; 
+    float: left; 
+    border-style: solid; 
+    border-width: 1px;
+}
+
+.input-box {
+    padding: 10px; 
+    margin-left: 20px;
+}
+
+.menu-bar {
+    background-color: #4688f1; 
+    padding: 20px;
+}
+
+.search-div {
+    display: inline-block; 
+    margin: 50px;
+}
+
+.button-add {
+    padding: 13px; 
+    float: right;
+    margin: -13px; 
+    border-radius: 10px;
+}
+.button-create {
+    float: right; 
+    padding: 12px;
+    border-radius: 10px; 
+    margin: 20px; 
+    background-color: #4688f1;
+}
+
+.button-cancel {
+    float: right; 
+    padding: 12px;
+    border-radius: 10px; 
+    margin: 20px ;
+    background-color: #e8443b; 
+}
+
+.input-div {
+    display: none; 
+    padding: 10px;
+    margin: 15px; 
+    border-style: solid; 
+    border-width: 1px;
+}
+
+.input-title {
+    margin: 13px;
+    margin-left: 53px;
+    padding: 7px;
+}
+
+.input-discription {
+    margin: 13px; 
+    padding: 7px;
+}
